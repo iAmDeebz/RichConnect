@@ -86,6 +86,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ## 🌐 Connect
 
-Created with 💙 by [Deebz]  
-Discord: @iAmDeebz
+Created with 💙 by Deebz  
+Discord: [ByteMinds](https://discord.gg/BcWyYgWw6a)
 GitHub: [@iamdeebz](https://github.com/iamdeebz)
