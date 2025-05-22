@@ -1,16 +1,115 @@
 ﻿<Window x:Class="RichConnect.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RichConnect"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Update Presence"
-        Click="UpdatePresenceButton_Click"
-        Width="150"
-        Height="30"
-        Margin="10"/>
-    </Grid>
+        Title="RichConnect"
+        Height="520" Width="440"
+        Background="#23272A"
+        Foreground="#FFFFFF"
+        FontFamily="Segoe UI">
+
+    <!-- Styles for rounded controls -->
+    <Window.Resources>
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#2C2F33"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#7289DA"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="12">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="#23272A" CornerRadius="18" Padding="0" BorderBrush="#7289DA" BorderThickness="1">
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Logo at the top -->
+            <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Source="logo.png" Height="64" Width="250"
+                   HorizontalAlignment="Center" Margin="0,0,0,16"/>
+
+            <!-- Details -->
+            <TextBlock Text="Details:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="0,0,8,0" FontSize="16" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,0,0">
+                <TextBox x:Name="DetailsBox"
+                         Background="#2C2F33" Foreground="#FFFFFF" BorderBrush="#7289DA"
+                         HorizontalAlignment="Stretch" Height="38" FontSize="16" Padding="10,4"
+                         Style="{StaticResource RoundedTextBoxStyle}"/>
+                <TextBlock Text="What are you doing? (e.g. 'Playing Chess', 'Listening to Music')"
+                           Foreground="#99AAB5" FontSize="12" Margin="2,4,0,8"/>
+            </StackPanel>
+
+            <!-- State -->
+            <TextBlock Text="State:" Grid.Row="2" Grid.Column="0" Foreground="#FFFFFF" Margin="0,0,8,0" FontSize="16" VerticalAlignment="Top"/>
+            <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,0,0,0">
+                <TextBox x:Name="StateBox"
+                         Background="#2C2F33" Foreground="#FFFFFF" BorderBrush="#7289DA"
+                         HorizontalAlignment="Stretch" Height="38" FontSize="16" Padding="10,4"
+                         Style="{StaticResource RoundedTextBoxStyle}"/>
+                <TextBlock Text="Extra info (e.g. 'In a match', 'On break', 'With friends')"
+                           Foreground="#99AAB5" FontSize="12" Margin="2,4,0,8"/>
+            </StackPanel>
+
+            <!-- Image -->
+            <TextBlock Text="Image:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="0,0,8,0" FontSize="16"/>
+            <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,0,0,0">
+                <StackPanel x:Name="ImageRadioPanel" Orientation="Vertical" Margin="0,0,0,8">
+                    <RadioButton Content="Jinwoo" Tag="jinwoo" GroupName="Images" Checked="ImageRadio_Checked" Foreground="#FFFFFF" Margin="0,0,0,4"/>
+                    <RadioButton Content="Femboy" Tag="femboy" GroupName="Images" Checked="ImageRadio_Checked" Foreground="#FFFFFF" Margin="0,0,0,4"/>
+                </StackPanel>
+                <TextBlock Text="Choose an image (must be uploaded in the Discord Developer Portal)"
+                           Foreground="#99AAB5" FontSize="12" Margin="2,4,0,8"/>
+            </StackPanel>
+
+            <Image x:Name="ImagePreview" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                   Height="64" Width="64" Margin="0,0,0,8" HorizontalAlignment="Left" Visibility="Collapsed"/>
+
+            <Button Content="Update Presence"
+                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                    Margin="0,0,0,0"
+                    Width="200" Height="48"
+                    HorizontalAlignment="Center"
+                    Click="UpdatePresenceButton_Click"
+                    Background="#7289DA" Foreground="#FFFFFF" BorderBrush="#99AAB5"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    Padding="12,4"
+                    Style="{StaticResource RoundedButtonStyle}"/>
+        </Grid>
+    </Border>
 </Window>
