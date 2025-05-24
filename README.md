@@ -37,13 +37,20 @@
 
 ---
 
-## ⚙️ Configuration
+# ⚙️ Configuration
 
-RichConnect uses [Lachee’s Discord RPC for C#](https://github.com/Lachee/discord-rpc-csharp). You’ll need to:
+Before launching the app, you must create a configuration file to link RichConnect with your Discord application:
 
-1. Create a new application in the [Discord Developer Portal](https://discord.com/developers/applications)  
-2. Get your **Client ID** and add it to the config section (coming soon)  
-3. (Optional) Upload custom **assets/icons** for your presence  
+1. Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application.
+2. Copy your **Client ID**.
+3. In the root directory of the project (next to the executable), create a file named `config.json` with the following content:
+
+```json
+{
+    "ApplicationId": "YOUR_DISCORD_CLIENT_ID"
+}
+
+- 💡 Note: The app will not work unless a valid ApplicationId is present in the config.json file.
 
 ---
 
