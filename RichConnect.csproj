@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <None Remove="appicon.ico" />
-    <None Remove="config.json" />
     <None Remove="logo.png" />
   </ItemGroup>
 
