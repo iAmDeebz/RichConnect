@@ -40,4 +40,10 @@
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

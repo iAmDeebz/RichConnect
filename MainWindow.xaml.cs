@@ -65,7 +65,7 @@ namespace RichConnect
 
             _notifyIcon = new NotifyIcon
             {
-                Icon = System.Drawing.SystemIcons.Application,
+                Icon = new System.Drawing.Icon("appicon.ico"),
                 Visible = true,
                 Text = "RichConnect"
             };
@@ -142,6 +142,7 @@ namespace RichConnect
                 ShowInTaskbar = false;
                 _notifyIcon.BalloonTipTitle = "RichConnect";
                 _notifyIcon.BalloonTipText = "Application minimized to tray.";
+                _notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
                 _notifyIcon.ShowBalloonTip(1000);
             }
             else
