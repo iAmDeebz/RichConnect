@@ -49,6 +49,7 @@ Before launching the app, you must create a configuration file to link RichConne
 {
     "ApplicationId": "YOUR_DISCORD_CLIENT_ID"
 }
+```
 
 - 💡 Note: The app will not work unless a valid ApplicationId is present in the config.json file.
 
